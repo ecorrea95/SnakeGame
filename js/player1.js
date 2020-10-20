@@ -86,7 +86,7 @@ function eatsFruit(){
 }
 
 function drawScore(){
-  document.querySelector('.score')
+  document.getElementById('score1')
     .innerText = "Player 1: "+score;
 }
 
