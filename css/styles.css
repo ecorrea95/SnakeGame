@@ -19,7 +19,8 @@ body {
 .canvas-width {
   display: inline-grid;
   width: 600px;
-  padding: 50px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 .center {
@@ -31,6 +32,7 @@ body {
   color: rgb(255, 255, 255);
   font-size: 25px;
 }
+
 
 /* .footer {
   position: fixed;
