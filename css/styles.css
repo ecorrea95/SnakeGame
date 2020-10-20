@@ -1,24 +1,41 @@
-.heading {
-  width: 600px;
+body {
+  background-color: rgb(149, 149, 149);
+  font-family: "Lucida Sans Unicode";
 }
 
-h1 {
+.title {
   text-align: center;
+  font-family: "Lucida Console";
+  text-transform: uppercase;
+  text-decoration: underline #EA8E13;
+  font-size: 3rem;
+  letter-spacing: 15px;
 }
 
-canvas {
+#canvas1, #canvas2 {
   background-color: black;
 }
 
+.canvas-width {
+  display: inline-grid;
+  width: 600px;
+  padding: 50px;
+}
+
+.center {
+  text-align: center;
+}
+
 .score {
-  font-weight: bold;
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-size: 25px;
 }
 
-.footer {
+/* .footer {
   position: fixed;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #dadada;
-}
+} */

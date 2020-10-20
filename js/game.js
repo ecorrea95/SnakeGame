@@ -1,4 +1,4 @@
-const canvas = document.getElementById('canvas');
+const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const box = 25;
 const canvasSize = 23;
