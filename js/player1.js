@@ -43,16 +43,16 @@ function DrawFruit(){
 //Change direction
 document.addEventListener('keydown', Direction);
 function Direction (event){
-  if(event.keyCode == 37 && dir != "RIGHT"){
+  if(event.keyCode == 65 && dir != "RIGHT"){
     dir = "LEFT";
     left.play();
-  } else if(event.keyCode == 38 && dir != "DOWN"){
+  } else if(event.keyCode == 87 && dir != "DOWN"){
     dir = "UP";
     up.play();
-  } else if(event.keyCode == 39 && dir != "LEFT"){
+  } else if(event.keyCode == 68 && dir != "LEFT"){
     dir = "RIGHT";
     right.play();
-  } else if(event.keyCode == 40 && dir != "UP"){
+  } else if(event.keyCode == 83 && dir != "UP"){
     dir = "DOWN";
     down.play();
   }
@@ -88,14 +88,6 @@ function eatsFruit(){
 function drawScore(){
   document.getElementById('score1')
     .innerText = "Player 1: "+score;
-}
-
-//Toggle pause
-document.addEventListener('keydown', togglePause);
-function togglePause (event){
-  if(event.keyCode == 32 || event.keyCode == 27){
-    alert("GAME PAUSED!");
-  }
 }
 
 //GAME LOOP

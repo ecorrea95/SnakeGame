@@ -90,14 +90,6 @@ function drawScore2(){
     .innerText = "Player 2: "+score2;
 }
 
-//Toggle pause
-document.addEventListener('keydown', togglePause);
-function togglePause (event){
-  if(event.keyCode == 32 || event.keyCode == 27){
-    alert("GAME PAUSED!");
-  }
-}
-
 //GAME LOOP
 function draw2(){
 
@@ -111,24 +103,25 @@ function draw2(){
   //Draw Fruit
   DrawFruit2();
 
-  let snakeX2 = snake[0].x;
-  let snakeY2 = snake[0].y;
+  let snakeX2 = snake2[0].x;
+  let snakeY2 = snake2[0].y;
 
   //ChangeDirection
   switch (dir2) {
-    case "LEFT":
+    case "LEFT2":
       snakeX2 -= box2;
       break;
-    case "RIGHT":
+    case "RIGHT2":
       snakeX2 += box2;
       break;
-    case "UP":
+    case "UP2":
       snakeY2 -= box2;
       break;
-    case "DOWN":
+    case "DOWN2":
       snakeY2 += box2;
       break;
     }
+
   //Limits verifications
   if(snakeX2 > (canvas2.width - box2*2))
     snakeX2 = box2;
