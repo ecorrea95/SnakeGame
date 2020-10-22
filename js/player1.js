@@ -8,18 +8,6 @@ let fruit = {
   y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box
 }
 let dir;
-let up = new Audio();
-let down = new Audio();
-let right = new Audio();
-let left = new Audio();
-up.src = "sounds/up.mp3";
-down.src = "sounds/down.mp3";
-right.src = "sounds/right.mp3";
-left.src = "sounds/left.mp3";
-let eat = new Audio();
-let dead = new Audio();
-eat.src = "sounds/eat.mp3";
-dead.src = "sounds/dead.mp3";
 let snake = [];
 snake[0] = {
   x: Math.floor((canvasSize/2)) * box,
@@ -64,6 +52,7 @@ function checkCollision (head, array){
   for (let i=0; i<array.length; i++){
     if (head.x == array[i].x && head.y == array[i].y){
       dead.play();
+      gameOver1 = true;
       return true;
     }
   }
@@ -144,9 +133,7 @@ function draw(){
   // Game Over
   if(checkCollision(newHead, snake)){
     clearInterval(game);
-    dead.play();
-    // alert("Game Over Player 1! Your score: "+score);
-    gameOver1 = true;
+    checkScores();
   }
   snake.unshift(newHead);
 

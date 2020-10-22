@@ -8,18 +8,6 @@ let fruit2 = {
   y: Math.floor(1 + (Math.random() * (canvasSize2 - 1))) * box2
 }
 let dir2;
-let up2 = new Audio();
-let down2 = new Audio();
-let right2 = new Audio();
-let left2 = new Audio();
-up2.src = "sounds/up.mp3";
-down2.src = "sounds/down.mp3";
-right2.src = "sounds/right.mp3";
-left2.src = "sounds/left.mp3";
-let eat2 = new Audio();
-let dead2 = new Audio();
-eat2.src = "sounds/eat.mp3";
-dead2.src = "sounds/dead.mp3";
 let snake2 = [];
 snake2[0] = {
   x: Math.floor((canvasSize2/2)) * box2,
@@ -46,16 +34,16 @@ document.addEventListener('keydown', Direction2);
 function Direction2 (event){
   if(event.keyCode == 37 && dir2 != "RIGHT2"){
     dir2 = "LEFT2";
-    left2.play();
+    left.play();
   } else if(event.keyCode == 38 && dir2 != "DOWN2"){
     dir2 = "UP2";
-    up2.play();
+    up.play();
   } else if(event.keyCode == 39 && dir2 != "LEFT2"){
     dir2 = "RIGHT2";
-    right2.play();
+    right.play();
   } else if(event.keyCode == 40 && dir2 != "UP2"){
     dir2 = "DOWN2";
-    down2.play();
+    down.play();
   }
 }
 
@@ -63,7 +51,8 @@ function Direction2 (event){
 function checkCollision2 (head2, array2){
   for (let i=0; i<array2.length; i++){
     if (head2.x == array2[i].x && head2.y == array2[i].y){
-      dead2.play();
+      dead.play();
+      gameOver2 = true;
       return true;
     }
   }
@@ -74,7 +63,7 @@ function checkCollision2 (head2, array2){
 function eatsFruit2(){
   if(snake2[0].x == fruit2.x && snake2[0].y == fruit2.y){
     score2++;
-    eat2.play();
+    eat.play();
     fruit2 = {
       x: Math.floor(1 + (Math.random() * (canvasSize2 - 1))) * box2,
       y: Math.floor(1 + (Math.random() * (canvasSize2 - 1))) * box2
@@ -145,9 +134,7 @@ function draw2(){
   //Game Over
   if(checkCollision2(newHead2, snake2)){
     clearInterval(game2);
-    dead2.play();
-    // alert("Game Over Player 2! Your score: "+score2);
-    gameOver2 = true;
+    checkScores();
   }
   snake2.unshift(newHead2);
 
