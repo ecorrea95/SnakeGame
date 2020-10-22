@@ -2,7 +2,7 @@ const canvas = document.getElementById('canvas1');
 const ctx = canvas.getContext('2d');
 const box = 25;
 const canvasSize = 23;
-let score = 0;
+var score = 0;
 let fruit = {
   x: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box,
   y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box
@@ -25,6 +25,7 @@ snake[0] = {
   x: Math.floor((canvasSize/2)) * box,
   y: Math.floor((canvasSize/2)) * box
 }
+var gameOver1 = false;
 
 //Draw the snake at the middle of the canvas
 function DrawSnake (){
@@ -43,17 +44,17 @@ function DrawFruit(){
 //Change direction
 document.addEventListener('keydown', Direction);
 function Direction (event){
-  if(event.keyCode == 65 && dir != "RIGHT"){
-    dir = "LEFT";
+  if(event.keyCode == 65 && dir != "RIGHT1"){
+    dir = "LEFT1";
     left.play();
-  } else if(event.keyCode == 87 && dir != "DOWN"){
-    dir = "UP";
+  } else if(event.keyCode == 87 && dir != "DOWN1"){
+    dir = "UP1";
     up.play();
-  } else if(event.keyCode == 68 && dir != "LEFT"){
-    dir = "RIGHT";
+  } else if(event.keyCode == 68 && dir != "LEFT1"){
+    dir = "RIGHT1";
     right.play();
-  } else if(event.keyCode == 83 && dir != "UP"){
-    dir = "DOWN";
+  } else if(event.keyCode == 83 && dir != "UP1"){
+    dir = "DOWN1";
     down.play();
   }
 }
@@ -108,16 +109,16 @@ function draw(){
 
   //ChangeDirection
   switch (dir) {
-    case "LEFT":
+    case "LEFT1":
       snakeX -= box;
       break;
-    case "RIGHT":
+    case "RIGHT1":
       snakeX += box;
       break;
-    case "UP":
+    case "UP1":
       snakeY -= box;
       break;
-    case "DOWN":
+    case "DOWN1":
       snakeY += box;
       break;
     }
@@ -140,11 +141,12 @@ function draw(){
       y : snakeY
   }
 
-  //Game Over
+  // Game Over
   if(checkCollision(newHead, snake)){
     clearInterval(game);
     dead.play();
-    alert("Game Over! Your score: "+score);
+    // alert("Game Over Player 1! Your score: "+score);
+    gameOver1 = true;
   }
   snake.unshift(newHead);
 

@@ -2,7 +2,7 @@ const canvas2 = document.getElementById('canvas2');
 const ctx2 = canvas2.getContext('2d');
 const box2 = 25;
 const canvasSize2 = 23;
-let score2 = 0;
+var score2 = 0;
 let fruit2 = {
   x: Math.floor(1 + (Math.random() * (canvasSize2 - 1))) * box2,
   y: Math.floor(1 + (Math.random() * (canvasSize2 - 1))) * box2
@@ -25,6 +25,7 @@ snake2[0] = {
   x: Math.floor((canvasSize2/2)) * box2,
   y: Math.floor((canvasSize2/2)) * box2
 }
+var gameOver2 = false;
 
 //Draw the snake at the middle of the canvas
 function DrawSnake2 (){
@@ -43,17 +44,17 @@ function DrawFruit2(){
 //Change direction
 document.addEventListener('keydown', Direction2);
 function Direction2 (event){
-  if(event.keyCode == 37 && dir != "RIGHT"){
-    dir2 = "LEFT";
+  if(event.keyCode == 37 && dir2 != "RIGHT2"){
+    dir2 = "LEFT2";
     left2.play();
-  } else if(event.keyCode == 38 && dir != "DOWN"){
-    dir2 = "UP";
+  } else if(event.keyCode == 38 && dir2 != "DOWN2"){
+    dir2 = "UP2";
     up2.play();
-  } else if(event.keyCode == 39 && dir != "LEFT"){
-    dir2 = "RIGHT";
+  } else if(event.keyCode == 39 && dir2 != "LEFT2"){
+    dir2 = "RIGHT2";
     right2.play();
-  } else if(event.keyCode == 40 && dir != "UP"){
-    dir2 = "DOWN";
+  } else if(event.keyCode == 40 && dir2 != "UP2"){
+    dir2 = "DOWN2";
     down2.play();
   }
 }
@@ -145,7 +146,8 @@ function draw2(){
   if(checkCollision2(newHead2, snake2)){
     clearInterval(game2);
     dead2.play();
-    alert("Game Over! Your score: "+score2);
+    // alert("Game Over Player 2! Your score: "+score2);
+    gameOver2 = true;
   }
   snake2.unshift(newHead2);
 
