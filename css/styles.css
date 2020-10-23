@@ -33,6 +33,31 @@ body {
   font-size: 25px;
 }
 
+.controls {
+  float: left;
+  font-size: 1.5rem;
+}
+
+.info {
+  background-color: rgb(0, 0, 0);
+  width: 15%;
+  border: 3px solid rgb(255, 255, 255);
+  color: rgb(255, 255, 255);
+  position: absolute;
+  transform: translateX(25px);
+  visibility: hidden;
+}
+
+.controls:hover + .info {
+  visibility: visible;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+
+
 
 /* .footer {
   position: fixed;

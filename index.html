@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Snake Game</title>
     <link rel="icon" type="image/x-icon" href="img/favicon.png" />
+    <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
     <!-- Estilos CSS -->
     <link href="css/styles.css" rel="stylesheet"/>
   </head>
@@ -12,11 +13,29 @@
     <div class="center">
       <!-- Player 1 -->
       <div class="canvas-width">
+
+        <i class="fas fa-info-circle controls"></i>
+          <span class="info">
+            <span>W = UP</span> <br>
+            <span>A = LEFT</span> <br>
+            <span>S = DOWN</span> <br>
+            <span>D = RIGHT</span> <br>
+          </span>
+
         <canvas id="canvas1" width="600" height="600"></canvas>
         <div id="score1" class="score"></div>
       </div>
       <!-- Player 2 -->
       <div class="canvas-width">
+
+        <i class="fas fa-info-circle controls"></i>
+          <span class="info">
+            <span class="bold">↑ </span><span>= UP</span> <br>
+            <span class="bold">← </span><span>= LEFT</span> <br>
+            <span class="bold">↓ </span><span>= DOWN</span> <br>
+            <span class="bold">→ </span><span>= RIGHT</span> <br>
+          </span>
+
         <canvas id="canvas2" width="600" height="600"></canvas>
         <div id="score2" class="score"></div>
       </div>
