@@ -1,20 +1,49 @@
+// Canvas
+const canvas = document.getElementById('canvas1');
+const ctx = canvas.getContext('2d');
+const box = 25;
+const canvasSize = 23;
+
+// Score
+var score = 0;
+
+// Fruits
+var fruit = {
+  x: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box,
+  y: Math.floor(1 + (Math.random() * (canvasSize - 1))) * box
+}
+
+// Snake
+var snake = [];
+snake[0] = {
+  x: Math.floor((canvasSize/2)) * box,
+  y: Math.floor((canvasSize/2)) * box
+}
+
+// Controls
+var dir;
+
+// GameOver
+var gameOver1 = false;
+
 //GAME LOOP
-function draw(){
+function player1(){
 
   //Draw the background
   ctx.fillStyle = "#EA8E13";
   ctx.fillRect(box, box, canvasSize*box-box, canvasSize*box-box);
 
   //Draw Snake
-  DrawSnake();
+  DrawSnake(snake, ctx, box);
 
   //Draw Fruit
-  DrawFruit();
+  DrawFruit(ctx, fruit, box);
 
+  // Change directions
+  document.addEventListener('keydown', Direction);
+  //ChangeDirection
   let snakeX = snake[0].x;
   let snakeY = snake[0].y;
-
-  //ChangeDirection
   switch (dir) {
     case "LEFT1":
       snakeX -= box;
@@ -29,7 +58,7 @@ function draw(){
       snakeY += box;
       break;
     }
-    
+
   //Limits verifications
   if(snakeX > (canvas.width - box*2))
     snakeX = box;
@@ -52,7 +81,8 @@ function draw(){
   // Game Over
   if(checkCollision(newHead, snake)){
     clearInterval(game);
-    checkScores();
+    gameOver1 = true;
+    checkScores(gameOver1, gameOver2, score, score2);
   }
   snake.unshift(newHead);
 
@@ -60,4 +90,4 @@ function draw(){
   drawScore();
 
 }
-let game = setInterval(draw, 100);
+let game = setInterval(player1, 100);
